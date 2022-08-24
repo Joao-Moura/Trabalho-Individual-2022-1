@@ -3,16 +3,14 @@ services:
     postgres:
         image: postgres:latest
         environment:
-            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=library_db
+            - POSTGRES_PASSWORD=password
     django:
-        build: .
+        build:
+            context: .
+            dockerfile: library_back/Dockerfile
         container_name: django
         environment:
-            - POSTGRES_DB=postgres
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres
-            - POSTGRES_HOST=postgres
-            - POSTGRES_PORT=5432
             - DJANGO_SETTINGS_MODULE=src.settings
         volumes:
             - .:/var/www
