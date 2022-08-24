@@ -18,3 +18,10 @@ services:
             - 80:8000
         depends_on:
             - postgres
+    react:
+        build:
+            context: .
+            dockerfile: library_front/Dockerfile
+        container_name: react
+        depends_on:
+            - django
