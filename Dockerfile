@@ -8,5 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY entrypoint.sh .
 ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
-CMD ["migrate"]
-CMD ["run", "django-gunicorn"]
+CMD ["run-back", "django-gunicorn"]
