@@ -14,12 +14,13 @@ services:
         container_name: django
         environment:
             - DJANGO_SETTINGS_MODULE=src.settings
-        volumes:
-            - .:/var/www
-        ports:
-            - 80:8000
         depends_on:
             - postgres
+        ports:
+            - 5000:8000
+        volumes:
+            - .:/var/www
+            - static_django:/var/www/library_back/static
     react:
         build:
             context: .
@@ -29,6 +30,23 @@ services:
             - django
         ports:
             - 3000:3000
+        volumes:
+            - static_react:/app/library_front/build
+    nginx:
+        build:
+            context: .
+            dockerfile: library_nginx/Dockerfile
+        container_name: nginx
+        depends_on:
+            - django
+            - react
+        ports:
+            - 80:80
+        volumes:
+            - static_django:/var/www/library_back/static
+            - static_react:/app/library_front/build
 
 volumes:
     postgres:
+    static_django:
+    static_react:
