@@ -1,0 +1,10 @@
+version: '3'
+services:
+    django:
+        image: "{$IMAGE_BACK}"
+        environment:
+            - DJANGO_SETTINGS_MODULE=src.settings
+        ports:
+            - 5000:8000
+        volumes:
+            - .:/var/www

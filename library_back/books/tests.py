@@ -1,8 +1,10 @@
 import unittest
+import pytest
 from .models import Book
 from .serializers import BookSerializer
 
 
+@pytest.mark.django_db
 class BookTests(unittest.TestCase):
     def setUp(self) -> None:
         self.book_attr = {
