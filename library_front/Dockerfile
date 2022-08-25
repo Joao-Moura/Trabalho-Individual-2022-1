@@ -7,4 +7,4 @@ RUN npm install
 
 COPY entrypoint.sh .
 ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
-CMD ["run-front", "react-debug"]
+CMD ["run-front", "react-start"]

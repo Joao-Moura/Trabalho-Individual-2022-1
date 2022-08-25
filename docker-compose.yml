@@ -30,8 +30,6 @@ services:
             - django
         ports:
             - 3000:3000
-        volumes:
-            - static_react:/app/library_front/build
     nginx:
         build:
             context: .
@@ -44,9 +42,7 @@ services:
             - 80:80
         volumes:
             - static_django:/var/www/library_back/static
-            - static_react:/app/library_front/build
 
 volumes:
     postgres:
     static_django:
-    static_react:

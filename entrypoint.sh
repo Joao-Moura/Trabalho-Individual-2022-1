@@ -13,8 +13,8 @@ if [ "$1" = "run-back" ]; then
     fi
 elif [ "$1" = "run-front" ]; then
     cd library_front
-    if [ "$2" = "react-debug" ]; then
-        npm start
+    if [ "$2" = "react-start" ]; then
+        exec npm start
     elif [ "$2" = "react-build" ]; then
         npm ci --silent
         exec npm run build
