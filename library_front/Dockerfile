@@ -1,7 +1,7 @@
 FROM node:18
 
-COPY library_front/ /app
 WORKDIR /app
+COPY library_front/ /app
 
 RUN npm install
 

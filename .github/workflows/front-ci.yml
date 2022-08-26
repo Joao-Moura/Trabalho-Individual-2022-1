@@ -59,4 +59,4 @@ jobs:
           docker-compose -f docker-compose.ci.yml -p front_$GITHUB_SHA up --no-build -d react
       - name: Running react tests
         run: |
-          docker exec front_${{ github.sha }}_react_1 npm test
+          docker exec front_${{ github.sha }}_react_1 npm test -- --watchAll=false
