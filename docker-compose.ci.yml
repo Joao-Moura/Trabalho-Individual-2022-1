@@ -17,6 +17,10 @@ services:
             - 5000:8000
         volumes:
             - .:/var/www
+    react:
+        image: "${IMAGE_FRONT}"
+        ports:
+            - 3000:3000
 
 volumes:
     postgres:
