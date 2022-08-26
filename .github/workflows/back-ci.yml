@@ -57,6 +57,6 @@ jobs:
           cp library_back/.env-sample library_back/.env
           docker load -i docker_image_$GITHUB_SHA
           docker-compose -f docker-compose.ci.yml -p back_$GITHUB_SHA up --no-build -d django
-      - name: Running users tests
+      - name: Running django tests
         run: |
           docker exec back_${{ github.sha }}_django_1 pytest library_back
