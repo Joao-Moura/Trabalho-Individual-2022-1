@@ -9,7 +9,6 @@ from .serializers import BookSerializer
 
 class BookViewSet(ModelViewSet):
     serializer_class = BookSerializer
-    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         renter = self.request.query_params.get("renter", None)
