@@ -6,5 +6,5 @@ COPY . /var/www
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY entrypoint.sh .
-ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
+# COPY entrypoint.sh .
+# ENTRYPOINT ["/bin/sh", "entrypoint.sh"]

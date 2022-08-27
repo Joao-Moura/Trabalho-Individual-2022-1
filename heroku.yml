@@ -5,9 +5,5 @@ setup:
 build:
     docker:
         web: library_back/Dockerfile
-release:
-  image: web
-  command:
-    - ./entrypoint.sh run-back django-migrate
 run:
-    web: exec gunicorn "src.wsgi:application" --bind 0.0.0.0:8000
+  web: gunicorn src.wsgi:application

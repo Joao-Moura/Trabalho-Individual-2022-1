@@ -1,4 +1,5 @@
 #!/bin/sh
+
 if [ "$1" = "run-back" ]; then
     cd library_back
     if [ "$2" = "django-debug" ]; then
@@ -8,14 +9,6 @@ if [ "$1" = "run-back" ]; then
         exec python manage.py collectstatic --noinput
     elif [ "$2" = "django-prod" ]; then
         exec gunicorn src.wsgi:application
-    fi
-elif [ "$1" = "run-front" ]; then
-    cd library_front
-    if [ "$2" = "react-start" ]; then
-        exec npm start
-    elif [ "$2" = "react-build" ]; then
-        npm ci --silent
-        exec npm run build
     fi
 elif [ "$1" = "migrate" ]; then
     exec python manage.py migrate
