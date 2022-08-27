@@ -10,4 +10,4 @@ release:
   command:
     - ./entrypoint.sh run-back django-migrate
 run:
-    web: exec gunicorn "src.wsgi:application" --bind 0.0.0.0:8000 --workers 4
+    web: exec gunicorn "src.wsgi:application" --bind 0.0.0.0:8000
