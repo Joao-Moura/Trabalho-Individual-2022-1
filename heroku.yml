@@ -5,5 +5,9 @@ setup:
 build:
     docker:
         web: library_back/Dockerfile
+release:
+  image: web
+  command:
+    - ./release.sh
 run:
   web: gunicorn src.wsgi:application

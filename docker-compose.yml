@@ -12,7 +12,6 @@ services:
             context: library_back
             dockerfile: Dockerfile
         container_name: django
-        command: run-back django-debug
         environment:
             - DJANGO_SETTINGS_MODULE=src.settings
         depends_on:

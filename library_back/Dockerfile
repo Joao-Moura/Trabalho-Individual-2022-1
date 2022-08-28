@@ -5,6 +5,4 @@ WORKDIR /var/www
 COPY . /var/www
 
 RUN pip install --no-cache-dir -r requirements.txt
-
-# COPY entrypoint.sh .
-# ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
+CMD ["python", "library_back/manage.py", "runserver", "0.0.0.0:8000"]
