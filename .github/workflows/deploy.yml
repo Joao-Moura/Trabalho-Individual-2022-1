@@ -7,7 +7,7 @@ on:
 
 jobs:
   backend:
-    name: deploy / backend
+    name: deploy / heroku
     runs-on: ubuntu-latest
     steps:
       - name: Check out code from Github
@@ -17,3 +17,25 @@ jobs:
       - name: Heroku push
         run: |
           git push -f https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git origin/main:main
+
+  frontend:
+    name: deploy / netlify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code from Github
+        uses: actions/checkout@v3
+      - name: Set up Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Build app
+        run: |
+          cd library_front
+          npm install
+          npm run build
+      - name: Netlify build
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          netlify deploy --prod
