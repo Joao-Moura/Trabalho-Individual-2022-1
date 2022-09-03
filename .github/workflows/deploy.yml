@@ -18,6 +18,22 @@ jobs:
         run: |
           git push -f https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git origin/main:main
 
+  dockerhub:
+    name: deploy / dockerhub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code from Github
+        uses: actions/checkout@v3
+      - name: Login on Dockerhub
+        run: |
+          docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASS }}
+      - name: Build django image
+        run: |
+          docker build library_back -f library_back/Dockerfile -t joaopedromoura/django:latest
+      - name: Push django image
+        run: |
+          docker push joaopedromoura/django:latest
+
   frontend:
     name: deploy / netlify
     runs-on: ubuntu-latest
