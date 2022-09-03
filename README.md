@@ -9,6 +9,12 @@ O sistema se trata de uma aplicação em Django e React que gerencia uma bibliot
 
 Para executar a aplicação em sua máquina, basta seguir o passo-a-passo descrito nas pastas do [Backend](./library_back/README.md) e [Frontend](./library_front/README.md) arquivo.
 
+## Ambientes de produção
+
+- [Dockerhub do Back](https://hub.docker.com/r/joaopedromoura/django)
+- [Prod. do Back (heroku)](https://gces-joao-moura-2022-1.herokuapp.com/)
+- [Prod. do Front (netlify)](https://gces-joao-moura-2022-1.netlify.app/)
+
 ## Resumo da aplicação
 
 A aplicação é um simples sistema de gerenciamento de uma biblioteca. Porém, o foco do trabalho é na automação da build, testes, conteinerização e configuração dos pipelines de CI/CD.
